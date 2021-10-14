@@ -14,8 +14,6 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Hydrate an HTTP response to array.
- *
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
 final class ArrayHydrator implements Hydrator
 {
@@ -23,7 +21,7 @@ final class ArrayHydrator implements Hydrator
     {
         $body = $response->getBody()->__toString();
         if (0 !== \mb_strpos($response->getHeaderLine('Content-Type'), 'application/json')) {
-            throw new HydrationException('The ArrayHydrator cannot hydrate response with Content-Type:'.$response->getHeaderLine('Content-Type'));
+            throw new HydrationException('The ArrayHydrator cannot hydrate response with Content-Type:' . $response->getHeaderLine('Content-Type'));
         }
 
         $content = \json_decode($body, true);

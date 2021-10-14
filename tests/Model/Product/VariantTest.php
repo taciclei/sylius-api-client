@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace FAPI\Sylius\tests\Model\Product;
+namespace Tests\Model\Product;
 
 use FAPI\Sylius\Model\Product\Variant;
-use FAPI\Sylius\tests\Model\BaseModelTest;
+use Tests\Model\BaseModelTest;
 
 class VariantTest extends BaseModelTest
 {

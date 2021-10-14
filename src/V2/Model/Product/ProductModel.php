@@ -2,16 +2,11 @@
 
 declare(strict_types=1);
 
-/*
- * This software may be modified and distributed under the terms
- * of the MIT license. See the LICENSE file for details.
- */
-
-namespace FAPI\Sylius\Model\Product;
+namespace FAPI\Sylius\V2\Model\Product;
 
 use FAPI\Sylius\Model\CreatableFromArray;
 
-final class Product implements CreatableFromArray
+final class ProductModel implements CreatableFromArray
 {
     /** @var int */
     private $id = 0;
@@ -31,13 +26,6 @@ final class Product implements CreatableFromArray
     /** @var Image[] */
     private $images = [];
 
-    private function __construct()
-    {
-    }
-
-    /**
-     * @return Product
-     */
     public static function createFromArray(array $data): self
     {
         $model = new self();

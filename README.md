@@ -17,7 +17,7 @@ $ composer require friendsofapi/sylius-api-client
 ## Usage
 
 ``` php
-$apiClient = SyliusClient::create($endpoint, $clientId, $clientSecret);
+$apiClient = SyliusClientV2::create($endpoint);
 $accessToken = $apiClient->createNewAccessToken($username, $password);
 $apiClient->authenticate($accessToken);
 $allProducts = $apiClient->product()->getAll()

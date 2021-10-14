@@ -15,20 +15,14 @@ use Http\Message\RequestFactory;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- *
  * @internal this class should not be used outside of the API Client, it is not part of the BC promise
  */
 final class RequestBuilder
 {
-    /**
-     * @var RequestFactory
-     */
+    /** @var RequestFactory */
     private $requestFactory;
 
-    /**
-     * @var MultipartStreamBuilder
-     */
+    /** @var MultipartStreamBuilder */
     private $multipartStreamBuilder;
 
     /**
@@ -72,7 +66,7 @@ final class RequestBuilder
         $multipartStream = $this->multipartStreamBuilder->build();
         $boundary = $this->multipartStreamBuilder->getBoundary();
 
-        $headers['Content-Type'] = 'multipart/form-data; boundary='.$boundary;
+        $headers['Content-Type'] = 'multipart/form-data; boundary=' . $boundary;
         $this->multipartStreamBuilder->reset();
 
         return $this->requestFactory->createRequest($method, $uri, $headers, $multipartStream);
