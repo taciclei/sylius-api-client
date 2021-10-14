@@ -1,6 +1,8 @@
 <?php
 
-namespace FAPI\Sylius\tests\Model;
+declare(strict_types=1);
+
+namespace Tests\Model;
 
 use PHPUnit\Framework\TestCase;
 

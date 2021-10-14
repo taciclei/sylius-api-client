@@ -15,10 +15,6 @@ use FAPI\Sylius\Model\Product\Variant as Model;
 use FAPI\Sylius\Model\Product\VariantCollection;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Kasim Taskin <taskinkasim@gmail.com>
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 final class Variant extends HttpApi
 {
     /**

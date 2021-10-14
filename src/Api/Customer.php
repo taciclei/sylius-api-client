@@ -14,9 +14,6 @@ use FAPI\Sylius\Exception\InvalidArgumentException;
 use FAPI\Sylius\Model\Customer\Customer as Model;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Kasim Taskin <taskinkasim@gmail.com>
- */
 final class Customer extends HttpApi
 {
     /**
@@ -50,7 +47,7 @@ final class Customer extends HttpApi
     {
         $params = $this->validateAndGetParams($email, $firstName, $lastName, $gender, $optionalParams);
 
-        $response = $this->httpPut('/api/v1/customers/'.$id, $params);
+        $response = $this->httpPut('/api/v1/customers/' . $id, $params);
 
         // Use any valid status code here
         if (204 !== $response->getStatusCode()) {

@@ -15,12 +15,9 @@ use FAPI\Sylius\Model\Checkout\PaymentCollection;
 use FAPI\Sylius\Model\Checkout\ShipmentCollection;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Kasim Taskin <taskinkasim@gmail.com>
- */
 final class Checkout extends HttpApi
 {
-    const SHIPPING_ADDRESS_FIELDS = [
+    public const SHIPPING_ADDRESS_FIELDS = [
         'firstName',
         'lastName',
         'city',
@@ -56,7 +53,7 @@ final class Checkout extends HttpApi
             'billingAddress' => $billingAddress,
         ];
 
-        $response = $this->httpPut('/api/v1/checkouts/addressing/'.$cartId, $params);
+        $response = $this->httpPut('/api/v1/checkouts/addressing/' . $cartId, $params);
         if (!$this->hydrator) {
             return $response;
         }
@@ -78,7 +75,7 @@ final class Checkout extends HttpApi
             throw new InvalidArgumentException('Cart id cannot be empty');
         }
 
-        $response = $this->httpPut('/api/v1/checkouts/select-payment/'.$cartId, $params);
+        $response = $this->httpPut('/api/v1/checkouts/select-payment/' . $cartId, $params);
         if (!$this->hydrator) {
             return $response;
         }
@@ -100,7 +97,7 @@ final class Checkout extends HttpApi
             throw new InvalidArgumentException('Cart id cannot be empty');
         }
 
-        $response = $this->httpPut('/api/v1/checkouts/complete/'.$cartId);
+        $response = $this->httpPut('/api/v1/checkouts/complete/' . $cartId);
         if (!$this->hydrator) {
             return $response;
         }
@@ -122,7 +119,7 @@ final class Checkout extends HttpApi
             throw new InvalidArgumentException('Cart id cannot be empty');
         }
 
-        $response = $this->httpGet('/api/v1/checkouts/select-shipping/'.$cartId);
+        $response = $this->httpGet('/api/v1/checkouts/select-shipping/' . $cartId);
         if (!$this->hydrator) {
             return $response;
         }
@@ -146,7 +143,7 @@ final class Checkout extends HttpApi
             throw new InvalidArgumentException('Cart id cannot be empty');
         }
 
-        $response = $this->httpGet('/api/v1/checkouts/select-payment/'.$cartId);
+        $response = $this->httpGet('/api/v1/checkouts/select-payment/' . $cartId);
         if (!$this->hydrator) {
             return $response;
         }

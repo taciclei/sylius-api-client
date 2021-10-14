@@ -15,9 +15,6 @@ use FAPI\Sylius\Model\Cart\Cart as Model;
 use FAPI\Sylius\Model\Cart\CartItem;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Kasim Taskin <taskinkasim@gmail.com>
- */
 final class Cart extends HttpApi
 {
     /**
@@ -31,7 +28,7 @@ final class Cart extends HttpApi
             throw new InvalidArgumentException('Id cannot be empty');
         }
 
-        $response = $this->httpGet('/api/v1/carts/'.$id);
+        $response = $this->httpGet('/api/v1/carts/' . $id);
         if (!$this->hydrator) {
             return $response;
         }

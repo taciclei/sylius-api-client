@@ -8,7 +8,7 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         bootstrap="./vendor/autoload.php"
+         bootstrap="./tests/bootstrap.php"
         >
 
     <testsuites>
@@ -26,4 +26,7 @@
             </exclude>
         </whitelist>
     </filter>
+    <listeners>
+        <listener class="VCR\PHPUnit\TestListener\VCRTestListener" file="vendor/php-vcr/phpunit-testlistener-vcr/src/VCRTestListener.php" />
+    </listeners>
 </phpunit>

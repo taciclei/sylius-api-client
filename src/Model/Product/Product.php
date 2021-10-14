@@ -11,39 +11,24 @@ namespace FAPI\Sylius\Model\Product;
 
 use FAPI\Sylius\Model\CreatableFromArray;
 
-/**
- * @author Kasim Taskin <taskinkasim@gmail.com>
- */
 final class Product implements CreatableFromArray
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     private $id = 0;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $name;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $code = '';
 
-    /**
-     * @var string[]
-     */
+    /** @var string[] */
     private $channels = [];
 
-    /**
-     * @var string[][]
-     */
+    /** @var string[][] */
     private $translations = [];
 
-    /**
-     * @var Image[]
-     */
+    /** @var Image[] */
     private $images = [];
 
     private function __construct()

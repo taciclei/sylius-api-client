@@ -1,0 +1,121 @@
+<?php
+
+declare(strict_types=1);
+
+namespace FAPI\Sylius\V2\Api\Product;
+
+use FAPI\Sylius\Api\HttpApi;
+use FAPI\Sylius\Exception;
+use FAPI\Sylius\Model\Product\Variant as Model;
+use FAPI\Sylius\Model\Product\VariantCollection;
+use Psr\Http\Message\ResponseInterface;
+
+final class Variant extends HttpApi
+{
+    /**
+     * @throws Exception\DomainException
+     *
+     * @return ResponseInterface|VariantCollection
+     */
+    public function getAll(string $productCode, array $params = [])
+    {
+        $response = $this->httpGet(\sprintf('/api/v1/products/%s/variants/', $productCode), $params);
+        if (!$this->hydrator) {
+            return $response;
+        }
+
+        // Use any valid status code here
+        if (200 !== $response->getStatusCode()) {
+            $this->handleErrors($response);
+        }
+
+        return $this->hydrator->hydrate($response, VariantCollection::class);
+    }
+
+    /**
+     * {@link https://docs.sylius.com/en/1.3/api/product_variants.html#getting-a-single-product-variant}.
+     *
+     * @throws Exception
+     *
+     * @return Model|ResponseInterface
+     */
+    public function get(string $productCode, string $code)
+    {
+        $response = $this->httpGet(\sprintf('/api/v1/products/%s/variants/%s', $productCode, $code));
+        if (!$this->hydrator) {
+            return $response;
+        }
+
+        // Use any valid status code here
+        if (200 !== $response->getStatusCode()) {
+            $this->handleErrors($response);
+        }
+
+        return $this->hydrator->hydrate($response, Model::class);
+    }
+
+    /**
+     * {@link https://docs.sylius.com/en/1.3/api/product_variants.html#creating-a-product-variant}.
+     *
+     * @throws Exception
+     *
+     * @return Model|ResponseInterface
+     */
+    public function create(string $productCode, string $code, array $params = [])
+    {
+        $params['code'] = $code;
+        $response = $this->httpPost(\sprintf('/api/v1/products/%s/variants/', $productCode), $params);
+        if (!$this->hydrator) {
+            return $response;
+        }
+
+        // Use any valid status code here
+        if (201 !== $response->getStatusCode()) {
+            $this->handleErrors($response);
+        }
+
+        return $this->hydrator->hydrate($response, Model::class);
+    }
+
+    /**
+     * Update a product partially.
+     *
+     * {@link https://docs.sylius.com/en/1.3/api/product_variants.html#updating-product-variant}
+     *
+     * @throws Exception
+     *
+     * @return ResponseInterface|void
+     */
+    public function update(string $productCode, string $code, array $params = [])
+    {
+        $response = $this->httpPatch(\sprintf('/api/v1/products/%s/variants/%s', $productCode, $code), $params);
+        if (!$this->hydrator) {
+            return $response;
+        }
+
+        // Use any valid status code here
+        if (204 !== $response->getStatusCode()) {
+            $this->handleErrors($response);
+        }
+    }
+
+    /**
+     * {@link https://docs.sylius.com/en/1.3/api/product_variants.html#deleting-a-product-variant}.
+     *
+     * @throws Exception
+     *
+     * @return ResponseInterface|void
+     */
+    public function delete(string $productCode, string $code)
+    {
+        $response = $this->httpDelete(\sprintf('/api/v1/products/%s/variants/%s', $productCode, $code));
+        if (!$this->hydrator) {
+            return $response;
+        }
+
+        // Use any valid status code here
+        if (204 !== $response->getStatusCode()) {
+            $this->handleErrors($response);
+        }
+    }
+}

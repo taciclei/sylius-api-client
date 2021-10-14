@@ -11,21 +11,15 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * This will automatically refresh expired access token.
- *
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
 class AuthenticationPlugin implements Plugin
 {
-    const RETRY_LIMIT = 2;
+    public const RETRY_LIMIT = 2;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $accessToken;
 
-    /**
-     * @var Authenticator
-     */
+    /** @var Authenticator */
     private $authenticator;
 
     /**

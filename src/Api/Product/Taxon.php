@@ -15,9 +15,6 @@ use FAPI\Sylius\Model\Product\Taxon as Model;
 use FAPI\Sylius\Model\Product\TaxonCollection as ModelCollection;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Radoje Albijanic <radoje.albijanic@gmail.com>
- */
 final class Taxon extends HttpApi
 {
     /**

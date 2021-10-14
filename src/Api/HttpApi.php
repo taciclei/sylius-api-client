@@ -17,24 +17,15 @@ use FAPI\Sylius\RequestBuilder;
 use Http\Client\HttpClient;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 abstract class HttpApi
 {
-    /**
-     * @var HttpClient
-     */
+    /** @var HttpClient */
     protected $httpClient;
 
-    /**
-     * @var Hydrator
-     */
+    /** @var Hydrator */
     protected $hydrator;
 
-    /**
-     * @var RequestBuilder
-     */
+    /** @var RequestBuilder */
     protected $requestBuilder;
 
     public function __construct(HttpClient $httpClient, Hydrator $hydrator, RequestBuilder $requestBuilder)
@@ -56,7 +47,7 @@ abstract class HttpApi
     protected function httpGet(string $path, array $params = [], array $requestHeaders = []): ResponseInterface
     {
         if (\count($params) > 0) {
-            $path .= '?'.\http_build_query($params);
+            $path .= '?' . \http_build_query($params);
         }
 
         return $this->httpClient->sendRequest(

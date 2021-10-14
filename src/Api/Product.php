@@ -13,11 +13,9 @@ use FAPI\Sylius\Api\Product\Variant;
 use FAPI\Sylius\Exception;
 use FAPI\Sylius\Model\Product\Product as Model;
 use FAPI\Sylius\Model\Product\ProductCollection;
+use FAPI\Sylius\Model\V2\Product\ProductCollectionV2;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * @author Kasim Taskin <taskinkasim@gmail.com>
- */
 final class Product extends HttpApi
 {
     public function variant(): Variant
@@ -32,7 +30,7 @@ final class Product extends HttpApi
      */
     public function get(string $productCode)
     {
-        $response = $this->httpGet('/api/v1/products/'.$productCode);
+        $response = $this->httpGet('/api/v1/products/' . $productCode);
         if (!$this->hydrator) {
             return $response;
         }
@@ -79,7 +77,7 @@ final class Product extends HttpApi
      */
     public function update(string $productCode, array $params = [])
     {
-        $response = $this->httpPatch('/api/v1/products/'.$productCode, $params);
+        $response = $this->httpPatch('/api/v1/products/' . $productCode, $params);
         if (!$this->hydrator) {
             return $response;
         }
@@ -95,9 +93,13 @@ final class Product extends HttpApi
      *
      * @return ProductCollection|ResponseInterface
      */
-    public function getAll(array $params = [])
+    public function getAll(array $params = [], $version = 'v1')
     {
-        $response = $this->httpGet('/api/v1/products/', $params);
+        $path = '/api/v2/shop/products';
+        $class = ProductCollectionV2::class;
+
+        $response = $this->httpGet($path, $params);
+
         if (!$this->hydrator) {
             return $response;
         }
@@ -107,6 +109,6 @@ final class Product extends HttpApi
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, ProductCollection::class);
+        return $this->hydrator->hydrate($response, $class);
     }
 }

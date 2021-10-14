@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace FAPI\Sylius\Api;
 
-/**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 final class Custom extends HttpApi
 {
     public function get(string $path, array $params = [], array $requestHeaders = [], string $class = '')

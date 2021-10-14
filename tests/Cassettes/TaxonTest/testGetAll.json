@@ -1,0 +1,280 @@
+[{
+    "request": {
+        "method": "POST",
+        "url": "https:\/\/master.demo.sylius.com\/api\/v2\/shop\/authentication-token",
+        "headers": {
+            "Host": "master.demo.sylius.com",
+            "accept": "application\/json",
+            "Content-type": "application\/json",
+            "User-Agent": "FriendsOfApi\/sylius (https:\/\/github.com\/FriendsOfApi\/sylius)",
+            "Expect": ""
+        },
+        "body": "{\"email\":\"shop@example.com\",\"password\":\"sylius\"}"
+    },
+    "response": {
+        "status": {
+            "http_version": "1.1",
+            "code": "200",
+            "message": "OK"
+        },
+        "headers": {
+            "Server": "nginx\/1.14.0 (Ubuntu)",
+            "Content-Type": "application\/json",
+            "Transfer-Encoding": "chunked",
+            "Connection": "keep-alive",
+            "Cache-Control": "no-cache, private",
+            "Date": "Thu, 14 Oct 2021 09:27:18 GMT",
+            "Link": "<https:\/\/master.demo.sylius.com\/api\/v2\/docs.jsonld>; rel=\"http:\/\/www.w3.org\/ns\/hydra\/core#apiDocumentation\""
+        },
+        "body": "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MzQyMDM2MzgsImV4cCI6MTYzNDIwNzIzOCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoic2hvcEBleGFtcGxlLmNvbSJ9.hiowwxmQ8_vpOdC-UvHJ-ZlnZf_GA5Qk9_CFmCZvYRaBx__5p_sL8Dp7vNa6i8y6ZJbC5cLXHOK2K1aynd6wNdzzrTIODK8FvdY0XCwqrikk5l8JFjii3xZ_B3MbyQXj7r3cP4rTCq2d7UwSMojUz5wpla7_HgFehcLwW47nE4UyrGObVYVzbrzBR0IZsOhVWKgTBOxWIm_ZhrZ40Evi1jJSWTuqZBcXq4yKUJnKyluEJ1TgzM17TyTYUQe4xVrWinAFTzxBt_c3y248dzrbyh5mMg-6vnZSKt1Dhar-7mx2Uw18kWvrL_bzxL5kEEjxXtkuUjQxV6rNn5M2Bp0N9Ndq1dsoRSMcK0O5fD9NHGf0SLbeUH2r2KeixoFddJ2maxxtPJQnzeXU7OXtNfxAZd_EJKIr-Up7l0auPD2ETJICAg_pWVSnyNbItxlHrQrLeFubVmzK7TADry4cLPjnDPkbbulQdg95TTu0cx4zRVrpn3R7HUlqVfIJCW3oc1cJwUCrSnWYDjerjYRMMNX8H3wQ9I0x9fdwOZsJl-tZVDX11dnLWC8GfxCFzJn_mImGM1YZIe89ABUQL9ViJVYB3sVpaGRHmLEkKzhrpmHTsD8GwBRzE3ujZ88l2cL5Slce5tfStKPl76DHVKhZTj9D5dXmxxRPO2cMY7hB61APLxM\",\"customer\":\"\\\/api\\\/v2\\\/shop\\\/customers\\\/52966\"}",
+        "curl_info": {
+            "url": "https:\/\/master.demo.sylius.com\/api\/v2\/shop\/authentication-token",
+            "content_type": "application\/json",
+            "http_code": 200,
+            "header_size": 320,
+            "request_size": 281,
+            "filetime": -1,
+            "ssl_verify_result": 0,
+            "redirect_count": 0,
+            "total_time": 0.504872,
+            "namelookup_time": 0.001035,
+            "connect_time": 0.043951,
+            "pretransfer_time": 0.193937,
+            "size_upload": 48,
+            "size_download": 896,
+            "speed_download": 1774,
+            "speed_upload": 95,
+            "download_content_length": -1,
+            "upload_content_length": 48,
+            "starttransfer_time": 0.504843,
+            "redirect_time": 0,
+            "redirect_url": "",
+            "primary_ip": "157.230.110.141",
+            "certinfo": [],
+            "primary_port": 443,
+            "local_ip": "10.0.250.62",
+            "local_port": 52781,
+            "http_version": 2,
+            "protocol": 2,
+            "ssl_verifyresult": 0,
+            "scheme": "HTTPS",
+            "appconnect_time_us": 193892,
+            "connect_time_us": 43951,
+            "namelookup_time_us": 1035,
+            "pretransfer_time_us": 193937,
+            "redirect_time_us": 0,
+            "starttransfer_time_us": 504843,
+            "total_time_us": 504872
+        }
+    }
+},{
+    "request": {
+        "method": "GET",
+        "url": "https:\/\/master.demo.sylius.com\/api\/v2\/shop\/taxons",
+        "headers": {
+            "Host": "master.demo.sylius.com",
+            "User-Agent": "FriendsOfApi\/sylius (https:\/\/github.com\/FriendsOfApi\/sylius)",
+            "Content-type": "application\/json",
+            "Expect": ""
+        }
+    },
+    "response": {
+        "status": {
+            "http_version": "1.1",
+            "code": "200",
+            "message": "OK"
+        },
+        "headers": {
+            "Server": "nginx\/1.14.0 (Ubuntu)",
+            "Content-Type": "application\/ld+json; charset=utf-8",
+            "Transfer-Encoding": "chunked",
+            "Connection": "keep-alive",
+            "Vary": "Accept",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "deny",
+            "Cache-Control": "no-cache, private",
+            "Date": "Thu, 14 Oct 2021 09:27:18 GMT",
+            "Link": "<https:\/\/master.demo.sylius.com\/api\/v2\/docs.jsonld>; rel=\"http:\/\/www.w3.org\/ns\/hydra\/core#apiDocumentation\"",
+            "ETag": "\"38c331ef82ae617e71f18aa3e32e98c6\""
+        },
+        "body": "{\"@context\":\"\\\/api\\\/v2\\\/contexts\\\/Taxon\",\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxons\",\"@type\":\"hydra:Collection\",\"hydra:member\":[{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/t_shirts\",\"@type\":\"Taxon\",\"id\":27713,\"code\":\"t_shirts\",\"children\":[\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/mens_t_shirts\",\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/womens_t_shirts\"],\"translations\":{\"de_DE\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221684\",\"@type\":\"TaxonTranslation\",\"id\":221684,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Expedita est voluptatum id et. Quaerat iusto placeat repellendus ea aut eligendi velit optio. Debitis nihil ea omnis placeat est.\"},\"en_US\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221683\",\"@type\":\"TaxonTranslation\",\"id\":221683,\"name\":\"T-shirts\",\"slug\":\"category\\\/t-shirts\",\"description\":\"Magnam sapiente quod blanditiis beatae. Enim ullam amet consectetur sed molestias praesentium. Sed nam expedita laboriosam ut officiis nesciunt aspernatur. Laborum ipsum consequatur iste vero.\"},\"es_ES\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221687\",\"@type\":\"TaxonTranslation\",\"id\":221687,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Expedita est voluptatum id et. Quaerat iusto placeat repellendus ea aut eligendi velit optio. Debitis nihil ea omnis placeat est.\"},\"es_MX\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221688\",\"@type\":\"TaxonTranslation\",\"id\":221688,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Expedita est voluptatum id et. Quaerat iusto placeat repellendus ea aut eligendi velit optio. Debitis nihil ea omnis placeat est.\"},\"fr_FR\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221685\",\"@type\":\"TaxonTranslation\",\"id\":221685,\"name\":\"T-shirts\",\"slug\":\"categorie\\\/t-shirts\",\"description\":\"Officiis voluptates sed quis cumque ullam quisquam voluptatem. Rerum ipsum quaerat nihil. Architecto enim qui magnam ducimus amet aut autem. Vero rerum quia beatae quis omnis reiciendis et provident. Non non quod magni.\"},\"pl_PL\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221686\",\"@type\":\"TaxonTranslation\",\"id\":221686,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Expedita est voluptatum id et. Quaerat iusto placeat repellendus ea aut eligendi velit optio. Debitis nihil ea omnis placeat est.\"},\"pt_PT\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221689\",\"@type\":\"TaxonTranslation\",\"id\":221689,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Expedita est voluptatum id et. Quaerat iusto placeat repellendus ea aut eligendi velit optio. Debitis nihil ea omnis placeat est.\"},\"zh_CN\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221690\",\"@type\":\"TaxonTranslation\",\"id\":221690,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Expedita est voluptatum id et. Quaerat iusto placeat repellendus ea aut eligendi velit optio. Debitis nihil ea omnis placeat est.\"}}},{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/caps\",\"@type\":\"Taxon\",\"id\":27716,\"code\":\"caps\",\"children\":[\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/simple_caps\",\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/caps_with_pompons\"],\"translations\":{\"de_DE\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221708\",\"@type\":\"TaxonTranslation\",\"id\":221708,\"name\":\"Caps\",\"slug\":\"caps\",\"description\":\"Quia quod neque fuga modi et debitis quasi. Aliquam magni rerum iusto omnis.\"},\"en_US\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221707\",\"@type\":\"TaxonTranslation\",\"id\":221707,\"name\":\"Caps\",\"slug\":\"category\\\/caps\",\"description\":\"Quos inventore harum aut voluptates. Dolorem ut repudiandae iste culpa cupiditate. Perspiciatis voluptatem ea animi tempore vero.\"},\"es_ES\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221711\",\"@type\":\"TaxonTranslation\",\"id\":221711,\"name\":\"Caps\",\"slug\":\"caps\",\"description\":\"Quia quod neque fuga modi et debitis quasi. Aliquam magni rerum iusto omnis.\"},\"es_MX\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221712\",\"@type\":\"TaxonTranslation\",\"id\":221712,\"name\":\"Caps\",\"slug\":\"caps\",\"description\":\"Quia quod neque fuga modi et debitis quasi. Aliquam magni rerum iusto omnis.\"},\"fr_FR\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221709\",\"@type\":\"TaxonTranslation\",\"id\":221709,\"name\":\"Bonnets\",\"slug\":\"categorie\\\/bonnets\",\"description\":\"Quia inventore et nam non soluta velit. Accusantium ipsa modi ex suscipit eos dicta dolorum. Animi consequatur earum consequatur corrupti voluptatem reprehenderit. Voluptates magni quis rerum. Accusantium perferendis sunt inventore consectetur sunt aut aspernatur.\"},\"pl_PL\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221710\",\"@type\":\"TaxonTranslation\",\"id\":221710,\"name\":\"Caps\",\"slug\":\"caps\",\"description\":\"Quia quod neque fuga modi et debitis quasi. Aliquam magni rerum iusto omnis.\"},\"pt_PT\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221713\",\"@type\":\"TaxonTranslation\",\"id\":221713,\"name\":\"Caps\",\"slug\":\"caps\",\"description\":\"Quia quod neque fuga modi et debitis quasi. Aliquam magni rerum iusto omnis.\"},\"zh_CN\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221714\",\"@type\":\"TaxonTranslation\",\"id\":221714,\"name\":\"Caps\",\"slug\":\"caps\",\"description\":\"Quia quod neque fuga modi et debitis quasi. Aliquam magni rerum iusto omnis.\"}}},{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/dresses\",\"@type\":\"Taxon\",\"id\":27719,\"code\":\"dresses\",\"children\":[],\"translations\":{\"de_DE\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221732\",\"@type\":\"TaxonTranslation\",\"id\":221732,\"name\":\"nulla soluta quos\",\"slug\":\"category\\\/nulla-soluta-quos\",\"description\":\"Ea vero totam repudiandae enim quo sed. Illum consequuntur cumque provident quo eum. Quasi maxime perferendis laboriosam sint. Libero doloribus exercitationem doloribus officiis cum aut aut modi.\"},\"en_US\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221731\",\"@type\":\"TaxonTranslation\",\"id\":221731,\"name\":\"Dresses\",\"slug\":\"category\\\/dresses\",\"description\":\"Animi alias expedita nisi tempore est maxime nihil. Consequatur impedit consequatur ipsam sit.\"},\"es_ES\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221735\",\"@type\":\"TaxonTranslation\",\"id\":221735,\"name\":\"nulla soluta quos\",\"slug\":\"category\\\/nulla-soluta-quos\",\"description\":\"Ea vero totam repudiandae enim quo sed. Illum consequuntur cumque provident quo eum. Quasi maxime perferendis laboriosam sint. Libero doloribus exercitationem doloribus officiis cum aut aut modi.\"},\"es_MX\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221736\",\"@type\":\"TaxonTranslation\",\"id\":221736,\"name\":\"nulla soluta quos\",\"slug\":\"category\\\/nulla-soluta-quos\",\"description\":\"Ea vero totam repudiandae enim quo sed. Illum consequuntur cumque provident quo eum. Quasi maxime perferendis laboriosam sint. Libero doloribus exercitationem doloribus officiis cum aut aut modi.\"},\"fr_FR\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221733\",\"@type\":\"TaxonTranslation\",\"id\":221733,\"name\":\"Robes\",\"slug\":\"categorie\\\/robes\",\"description\":\"Odit aut quia magnam adipisci qui exercitationem officia mollitia. Quia ipsa rerum vel necessitatibus. Aut omnis et et voluptatem quia facilis est. Quos temporibus minima tenetur et. Ut ducimus necessitatibus inventore esse nulla.\"},\"pl_PL\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221734\",\"@type\":\"TaxonTranslation\",\"id\":221734,\"name\":\"nulla soluta quos\",\"slug\":\"category\\\/nulla-soluta-quos\",\"description\":\"Ea vero totam repudiandae enim quo sed. Illum consequuntur cumque provident quo eum. Quasi maxime perferendis laboriosam sint. Libero doloribus exercitationem doloribus officiis cum aut aut modi.\"},\"pt_PT\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221737\",\"@type\":\"TaxonTranslation\",\"id\":221737,\"name\":\"nulla soluta quos\",\"slug\":\"category\\\/nulla-soluta-quos\",\"description\":\"Ea vero totam repudiandae enim quo sed. Illum consequuntur cumque provident quo eum. Quasi maxime perferendis laboriosam sint. Libero doloribus exercitationem doloribus officiis cum aut aut modi.\"},\"zh_CN\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221738\",\"@type\":\"TaxonTranslation\",\"id\":221738,\"name\":\"nulla soluta quos\",\"slug\":\"category\\\/nulla-soluta-quos\",\"description\":\"Ea vero totam repudiandae enim quo sed. Illum consequuntur cumque provident quo eum. Quasi maxime perferendis laboriosam sint. Libero doloribus exercitationem doloribus officiis cum aut aut modi.\"}}},{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/jeans\",\"@type\":\"Taxon\",\"id\":27720,\"code\":\"jeans\",\"children\":[\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/mens_jeans\",\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/womens_jeans\"],\"translations\":{\"de_DE\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221740\",\"@type\":\"TaxonTranslation\",\"id\":221740,\"name\":\"Jeans\",\"slug\":\"jeans\",\"description\":\"Quis explicabo et voluptas tenetur. Qui occaecati ducimus tempore modi aspernatur aut dolor.\"},\"en_US\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221739\",\"@type\":\"TaxonTranslation\",\"id\":221739,\"name\":\"Jeans\",\"slug\":\"category\\\/jeans\",\"description\":\"Sed eligendi enim officia delectus quod. Sit velit dolor rerum eum qui blanditiis repellat. Laboriosam saepe illum fugiat quia.\"},\"es_ES\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221743\",\"@type\":\"TaxonTranslation\",\"id\":221743,\"name\":\"Jeans\",\"slug\":\"jeans\",\"description\":\"Quis explicabo et voluptas tenetur. Qui occaecati ducimus tempore modi aspernatur aut dolor.\"},\"es_MX\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221744\",\"@type\":\"TaxonTranslation\",\"id\":221744,\"name\":\"Jeans\",\"slug\":\"jeans\",\"description\":\"Quis explicabo et voluptas tenetur. Qui occaecati ducimus tempore modi aspernatur aut dolor.\"},\"fr_FR\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221741\",\"@type\":\"TaxonTranslation\",\"id\":221741,\"name\":\"Jeans\",\"slug\":\"categorie\\\/jeans\",\"description\":\"Delectus inventore quibusdam iure animi. Nam autem molestiae blanditiis animi et quo consequuntur voluptatibus. Dolorem officia ut fugit minima vitae velit. Rerum excepturi dolores id veritatis.\"},\"pl_PL\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221742\",\"@type\":\"TaxonTranslation\",\"id\":221742,\"name\":\"Jeans\",\"slug\":\"jeans\",\"description\":\"Quis explicabo et voluptas tenetur. Qui occaecati ducimus tempore modi aspernatur aut dolor.\"},\"pt_PT\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221745\",\"@type\":\"TaxonTranslation\",\"id\":221745,\"name\":\"Jeans\",\"slug\":\"jeans\",\"description\":\"Quis explicabo et voluptas tenetur. Qui occaecati ducimus tempore modi aspernatur aut dolor.\"},\"zh_CN\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221746\",\"@type\":\"TaxonTranslation\",\"id\":221746,\"name\":\"Jeans\",\"slug\":\"jeans\",\"description\":\"Quis explicabo et voluptas tenetur. Qui occaecati ducimus tempore modi aspernatur aut dolor.\"}}}],\"hydra:totalItems\":4}",
+        "curl_info": {
+            "url": "https:\/\/master.demo.sylius.com\/api\/v2\/shop\/taxons",
+            "content_type": "application\/ld+json; charset=utf-8",
+            "http_code": 200,
+            "header_size": 450,
+            "request_size": 185,
+            "filetime": -1,
+            "ssl_verify_result": 0,
+            "redirect_count": 0,
+            "total_time": 0.270945,
+            "namelookup_time": 0.001022,
+            "connect_time": 0.070737,
+            "pretransfer_time": 0.170821,
+            "size_upload": 0,
+            "size_download": 10312,
+            "speed_download": 38059,
+            "speed_upload": 0,
+            "download_content_length": -1,
+            "upload_content_length": 0,
+            "starttransfer_time": 0.270924,
+            "redirect_time": 0,
+            "redirect_url": "",
+            "primary_ip": "157.230.110.141",
+            "certinfo": [],
+            "primary_port": 443,
+            "local_ip": "10.0.250.62",
+            "local_port": 52782,
+            "http_version": 2,
+            "protocol": 2,
+            "ssl_verifyresult": 0,
+            "scheme": "HTTPS",
+            "appconnect_time_us": 170784,
+            "connect_time_us": 70737,
+            "namelookup_time_us": 1022,
+            "pretransfer_time_us": 170821,
+            "redirect_time_us": 0,
+            "starttransfer_time_us": 270924,
+            "total_time_us": 270945
+        }
+    }
+},{
+    "request": {
+        "method": "GET",
+        "url": "https:\/\/master.demo.sylius.com\/api\/v2\/taxons\/t_shirts",
+        "headers": {
+            "Host": "master.demo.sylius.com",
+            "User-Agent": "FriendsOfApi\/sylius (https:\/\/github.com\/FriendsOfApi\/sylius)",
+            "Content-type": "application\/json",
+            "Expect": ""
+        }
+    },
+    "response": {
+        "status": {
+            "http_version": "1.1",
+            "code": "404",
+            "message": "Not Found"
+        },
+        "headers": {
+            "Server": "nginx\/1.14.0 (Ubuntu)",
+            "Content-Type": "text\/html; charset=UTF-8",
+            "Transfer-Encoding": "chunked",
+            "Connection": "keep-alive",
+            "Cache-Control": "max-age=0, must-revalidate, private",
+            "Date": "Thu, 14 Oct 2021 09:39:12 GMT",
+            "Link": "<https:\/\/master.demo.sylius.com\/api\/v2\/docs.jsonld>; rel=\"http:\/\/www.w3.org\/ns\/hydra\/core#apiDocumentation\"",
+            "Expires": "Thu, 14 Oct 2021 09:39:12 GMT"
+        },
+        "body": "<!DOCTYPE html>\n\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n\n    <title>Fashion Web Store<\/title>\n\n    <meta content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\" name=\"viewport\">\n\n        \n            <link rel=\"stylesheet\" href=\"\/assets\/shop\/css\/style.css\">\n\n\n\n    \n        <!-- Global site tag (gtag.js) - Google Analytics -->\n    <script async src=\"https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-42730941-6\"><\/script>\n    <script>\n        window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag('js', new Date());\n\n        gtag('config', 'UA-42730941-6');\n    <\/script>\n\n\n\n<\/head>\n\n<body class=\"pushable\">\n\n\n<div class=\"pusher\">\n            <div id=\"menu\" class=\"ui large sticky inverted stackable menu\">\n            \n\n\n\n\n\n\n\n<div class=\"ui right stackable inverted menu\">\n            <a href=\"\/en_US\/login\" class=\"item\">Login<\/a>\n        <a href=\"\/en_US\/register\" class=\"item\">Register<\/a>\n    <\/div>\n\n\n\n\n        <\/div>\n    \n    <div class=\"ui container\">\n                    <header>\n                <div class=\"ui basic segment\">\n    <div class=\"ui three column stackable grid\">\n        <div class=\"column\">\n    <a href=\"\/en_US\/\"><img src=\"\/assets\/shop\/img\/logo.png\" alt=\"Sylius logo\" class=\"ui small image\" \/><\/a>\n<\/div>\n\n<div class=\"column\">\n    \n\n<\/div>\n\n<div class=\"right aligned column\">\n    \n<div id=\"sylius-cart-button\" class=\"ui circular cart button\">\n    \n\n\n<i class=\"cart icon\"><\/i>\n<span id=\"sylius-cart-total\" >$0.00<\/span>\n\n\n\n<\/div>\n<div class=\"ui large flowing cart hidden popup\">\n    \n\n\n    Your cart is empty.\n\n\n\n<\/div>\n\n<\/div>\n\n    <\/div>\n<\/div>\n\n\n\n\n\n\n\n<div class=\"ui large stackable menu\" >\n                \n            <div class=\"ui dropdown item\" >\n            <span class=\"text\">T-shirts<\/span>\n            <i class=\"dropdown icon\"><\/i>\n            <div class=\"menu\">\n                                        \n            <a href=\"\/en_US\/taxons\/t-shirts\/men\" class=\"item\" >Men<\/a>\n    \n                                        \n            <a href=\"\/en_US\/taxons\/t-shirts\/women\" class=\"item\" >Women<\/a>\n    \n                            <\/div>\n        <\/div>\n    \n                \n            <div class=\"ui dropdown item\" >\n            <span class=\"text\">Caps<\/span>\n            <i class=\"dropdown icon\"><\/i>\n            <div class=\"menu\">\n                                        \n            <a href=\"\/en_US\/taxons\/caps\/simple\" class=\"item\" >Simple<\/a>\n    \n                                        \n            <a href=\"\/en_US\/taxons\/caps\/with-pompons\" class=\"item\" >With pompons<\/a>\n    \n                            <\/div>\n        <\/div>\n    \n                \n            <a href=\"\/en_US\/taxons\/category\/dresses\" class=\"item\" >Dresses<\/a>\n    \n                \n            <div class=\"ui dropdown item\" >\n            <span class=\"text\">Jeans<\/span>\n            <i class=\"dropdown icon\"><\/i>\n            <div class=\"menu\">\n                                        \n            <a href=\"\/en_US\/taxons\/jeans\/men\" class=\"item\" >Men<\/a>\n    \n                                        \n            <a href=\"\/en_US\/taxons\/jeans\/women\" class=\"item\" >Women<\/a>\n    \n                            <\/div>\n        <\/div>\n    \n    <\/div>\n\n\n            <\/header>\n        \n                                                            \n        \n\n\n            <h2 class=\"ui center aligned icon header\">\n        <img src=\"\/assets\/shop\/img\/logo.png\" alt=\"Sylius logo\" class=\"ui small image\" \/>\n        <br\/><br\/>\n        The page you are looking for does not exist.\n    <\/h2>\n\n\n        \n\n    <\/div>\n\n            <footer id=\"footer\" class=\"ui inverted vertical footer segment\">\n    <div class=\"ui container\">\n        <div class=\"ui inverted divided equal height stackable grid\">\n    \n\n<div class=\"four wide column\">\n    <a href=\"https:\/\/sylius.com\/plus\" target=\"_blank\" style=\"display: inline-block; text-align: center;\">\n        <h4 class=\"ui inverted header\" style=\"color: #808080;\">\n            Need even more features?\n            <div class=\"sub header\" style=\"padding: 5px 0;\">Check Sylius Plus out!<\/div>\n        <\/h4>\n        <img class=\"ui fluid image\" style=\"max-width: 170px;\" src=\"\/assets\/shop\/img\/sylius-plus-banner.png\" alt=\"Sylius Plus\">\n    <\/a>\n<\/div>\n\n<div class=\"four wide column\">\n    <h4 class=\"ui inverted header\">Your Store<\/h4>\n    <div class=\"ui inverted link list\">\n        <a href=\"#\" class=\"item\">About<\/a>\n        <a href=\"#\" class=\"item\">Terms and Conditions<\/a>\n        <a href=\"#\" class=\"item\">Privacy Policy<\/a>\n        <a href=\"\/en_US\/contact\/\" class=\"item\">Contact us<\/a>\n    <\/div>\n<\/div>\n\n<div class=\"four wide column\">\n    <h4 class=\"ui inverted header\">Customer Care<\/h4>\n    <div class=\"ui inverted link list\">\n        <a href=\"\/en_US\/contact\/\" class=\"item\">Contact us<\/a>\n        <a href=\"#\" class=\"item\">FAQs<\/a>\n        <a href=\"#\" class=\"item\">Delivery &amp; Shipping<\/a>\n        <a href=\"#\" class=\"item\">Returns Policy<\/a>\n    <\/div>\n<\/div>\n\n<div class=\"four wide column\">\n    <h4 class=\"ui inverted header\">Payment methods<\/h4>\n    <div>\n        <i class=\"huge inverted cc mastercard icon\"><\/i>\n        <i class=\"huge inverted cc visa icon\"><\/i>\n        <i class=\"huge inverted cc paypal card icon\"><\/i>\n    <\/div>\n<\/div>\n\n<\/div>\n\n<div class=\"ui hidden divider\"><\/div>\n\n<div class=\"ui center aligned inverted basic segment\">\n    <p>&copy; Your Store, Powered by <a href=\"https:\/\/sylius.com\" target=\"_blank\" style=\"color: #1abb9c;\">Sylius<\/a>.<\/p>\n    <a target=\"_blank\" href=\"\/\/facebook.com\/SyliusEcommerce\/\"><i class=\"big grey facebook icon\"><\/i><\/a>\n    <a target=\"_blank\" href=\"\/\/instagram.com\/sylius.team\/\"><i class=\"big grey instagram icon\"><\/i><\/a>\n    <a target=\"_blank\" href=\"\/\/twitter.com\/sylius\"><i class=\"big grey twitter card icon\"><\/i><\/a>\n<\/div>\n\n\n<style>\n    .version-switch {\n        position: fixed;\n        bottom: 0;\n        right: 30px;\n        display: flex;\n        align-items: center;\n        background: #333;\n        padding: 10px 10px;\n        border-radius: 5px 5px 0 0;\n        color: #fff;\n        z-index: 9999;\n    }\n\n    .version-switch label {\n        display: inline-block;\n        padding: 0 10px;\n        font-size: 13px;\n        color: #999;\n    }\n\n    .version-switch select {\n        display: inline-block;\n        height: 30px;\n        border: 1px solid #5a5a5a;\n        background: #333;\n        color: #fff;\n        font-size: 13px;\n    }\n<\/style>\n\n<div class=\"version-switch\">\n    <label for=\"version-switch\">Sylius version:<\/label>\n    <select id=\"version-switch\">\n        <option value=\"\/\/demo.sylius.com\">\n            Last Stable Release\n        <\/option>\n        <option value=\"\/\/master.demo.sylius.com\" selected>\n            Next Release Features (v1.11.0-DEV)\n        <\/option>\n    <\/select>\n<\/div>\n\n<script type=\"text\/javascript\">\n    const versionSelect = document.getElementById('version-switch');\n\n    versionSelect.addEventListener('change', (e) => {\n        window.location.href = e.target.value;\n    });\n<\/script>\n\n\n\n    <\/div>\n<\/footer>\n    <\/div>\n\n    <script src=\"\/assets\/shop\/js\/app.js\"><\/script>\n\n\n\n\n<div class=\"ui small basic modal\" id=\"confirmation-modal\">\n    <div class=\"ui icon header\">\n        <i class=\"warning sign icon\"><\/i>\n        Confirm your action\n    <\/div>\n    <div class=\"content\">\n        <p>Are you sure you want to perform this action?<\/p>\n    <\/div>\n    <div class=\"actions\">\n        <div class=\"ui red basic cancel inverted button\">\n            <i class=\"remove icon\"><\/i>\n            No\n        <\/div>\n        <div class=\"ui green ok inverted button\" id=\"confirmation-button\">\n            <i class=\"checkmark icon\"><\/i>\n            Yes\n        <\/div>\n    <\/div>\n<\/div>\n\n\n<\/body>\n<\/html>\n",
+        "curl_info": {
+            "url": "https:\/\/master.demo.sylius.com\/api\/v2\/taxons\/t_shirts",
+            "content_type": "text\/html; charset=UTF-8",
+            "http_code": 404,
+            "header_size": 393,
+            "request_size": 189,
+            "filetime": -1,
+            "ssl_verify_result": 0,
+            "redirect_count": 0,
+            "total_time": 0.249974,
+            "namelookup_time": 0.030787,
+            "connect_time": 0.05995,
+            "pretransfer_time": 0.141435,
+            "size_upload": 0,
+            "size_download": 7765,
+            "speed_download": 31063,
+            "speed_upload": 0,
+            "download_content_length": -1,
+            "upload_content_length": 0,
+            "starttransfer_time": 0.249905,
+            "redirect_time": 0,
+            "redirect_url": "",
+            "primary_ip": "157.230.110.141",
+            "certinfo": [],
+            "primary_port": 443,
+            "local_ip": "10.0.250.62",
+            "local_port": 55664,
+            "http_version": 2,
+            "protocol": 2,
+            "ssl_verifyresult": 0,
+            "scheme": "HTTPS",
+            "appconnect_time_us": 141384,
+            "connect_time_us": 59950,
+            "namelookup_time_us": 30787,
+            "pretransfer_time_us": 141435,
+            "redirect_time_us": 0,
+            "starttransfer_time_us": 249905,
+            "total_time_us": 249974
+        }
+    }
+},{
+    "request": {
+        "method": "GET",
+        "url": "https:\/\/master.demo.sylius.com\/api\/v2\/shop\/taxons\/t_shirts",
+        "headers": {
+            "Host": "master.demo.sylius.com",
+            "User-Agent": "FriendsOfApi\/sylius (https:\/\/github.com\/FriendsOfApi\/sylius)",
+            "Content-type": "application\/json",
+            "Expect": ""
+        }
+    },
+    "response": {
+        "status": {
+            "http_version": "1.1",
+            "code": "200",
+            "message": "OK"
+        },
+        "headers": {
+            "Server": "nginx\/1.14.0 (Ubuntu)",
+            "Content-Type": "application\/ld+json; charset=utf-8",
+            "Transfer-Encoding": "chunked",
+            "Connection": "keep-alive",
+            "Vary": "Accept",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "deny",
+            "Cache-Control": "no-cache, private",
+            "Date": "Thu, 14 Oct 2021 10:16:50 GMT",
+            "Link": "<https:\/\/master.demo.sylius.com\/api\/v2\/docs.jsonld>; rel=\"http:\/\/www.w3.org\/ns\/hydra\/core#apiDocumentation\"",
+            "ETag": "\"ef26df1c02cb9cffd329f37de243e278\""
+        },
+        "body": "{\"@context\":\"\\\/api\\\/v2\\\/contexts\\\/Taxon\",\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/t_shirts\",\"@type\":\"Taxon\",\"id\":27724,\"code\":\"t_shirts\",\"children\":[\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/mens_t_shirts\",\"\\\/api\\\/v2\\\/shop\\\/taxons\\\/womens_t_shirts\"],\"translations\":{\"de_DE\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221772\",\"@type\":\"TaxonTranslation\",\"id\":221772,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Magnam ullam qui recusandae tempore quia ea et corrupti. Provident illo quam cum maiores et quia autem. Neque aut fugiat at ullam et alias. Et omnis amet adipisci officiis.\"},\"en_US\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221771\",\"@type\":\"TaxonTranslation\",\"id\":221771,\"name\":\"T-shirts\",\"slug\":\"category\\\/t-shirts\",\"description\":\"Quisquam vel tempore nisi nulla quia reprehenderit temporibus. Delectus vel veritatis in qui laborum. Aut aperiam placeat omnis vel.\"},\"es_ES\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221775\",\"@type\":\"TaxonTranslation\",\"id\":221775,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Magnam ullam qui recusandae tempore quia ea et corrupti. Provident illo quam cum maiores et quia autem. Neque aut fugiat at ullam et alias. Et omnis amet adipisci officiis.\"},\"es_MX\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221776\",\"@type\":\"TaxonTranslation\",\"id\":221776,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Magnam ullam qui recusandae tempore quia ea et corrupti. Provident illo quam cum maiores et quia autem. Neque aut fugiat at ullam et alias. Et omnis amet adipisci officiis.\"},\"fr_FR\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221773\",\"@type\":\"TaxonTranslation\",\"id\":221773,\"name\":\"T-shirts\",\"slug\":\"categorie\\\/t-shirts\",\"description\":\"Eos tempora qui hic eos nostrum. Quam ea ut voluptas quisquam. Aut molestias voluptatem molestias commodi repudiandae et.\"},\"pl_PL\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221774\",\"@type\":\"TaxonTranslation\",\"id\":221774,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Magnam ullam qui recusandae tempore quia ea et corrupti. Provident illo quam cum maiores et quia autem. Neque aut fugiat at ullam et alias. Et omnis amet adipisci officiis.\"},\"pt_PT\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221777\",\"@type\":\"TaxonTranslation\",\"id\":221777,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Magnam ullam qui recusandae tempore quia ea et corrupti. Provident illo quam cum maiores et quia autem. Neque aut fugiat at ullam et alias. Et omnis amet adipisci officiis.\"},\"zh_CN\":{\"@id\":\"\\\/api\\\/v2\\\/shop\\\/taxon-translations\\\/221778\",\"@type\":\"TaxonTranslation\",\"id\":221778,\"name\":\"T-shirts\",\"slug\":\"t-shirts\",\"description\":\"Magnam ullam qui recusandae tempore quia ea et corrupti. Provident illo quam cum maiores et quia autem. Neque aut fugiat at ullam et alias. Et omnis amet adipisci officiis.\"}}}",
+        "curl_info": {
+            "url": "https:\/\/master.demo.sylius.com\/api\/v2\/shop\/taxons\/t_shirts",
+            "content_type": "application\/ld+json; charset=utf-8",
+            "http_code": 200,
+            "header_size": 450,
+            "request_size": 194,
+            "filetime": -1,
+            "ssl_verify_result": 0,
+            "redirect_count": 0,
+            "total_time": 0.278972,
+            "namelookup_time": 0.079216,
+            "connect_time": 0.096542,
+            "pretransfer_time": 0.161035,
+            "size_upload": 0,
+            "size_download": 2780,
+            "speed_download": 9965,
+            "speed_upload": 0,
+            "download_content_length": -1,
+            "upload_content_length": 0,
+            "starttransfer_time": 0.278848,
+            "redirect_time": 0,
+            "redirect_url": "",
+            "primary_ip": "157.230.110.141",
+            "certinfo": [],
+            "primary_port": 443,
+            "local_ip": "10.0.250.63",
+            "local_port": 61163,
+            "http_version": 2,
+            "protocol": 2,
+            "ssl_verifyresult": 0,
+            "scheme": "HTTPS",
+            "appconnect_time_us": 160944,
+            "connect_time_us": 96542,
+            "namelookup_time_us": 79216,
+            "pretransfer_time_us": 161035,
+            "redirect_time_us": 0,
+            "starttransfer_time_us": 278848,
+            "total_time_us": 278972
+        }
+    }
+}]

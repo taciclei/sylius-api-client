@@ -16,44 +16,27 @@ use FAPI\Sylius\Hydrator\Hydrator;
 use FAPI\Sylius\Hydrator\ModelHydrator;
 use Http\Client\HttpClient;
 
-/**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 class SyliusClient
 {
-    /**
-     * @var HttpClient
-     */
+    /** @var HttpClient */
     private $httpClient;
 
-    /**
-     * @var Hydrator
-     */
+    /** @var Hydrator */
     private $hydrator;
 
-    /**
-     * @var RequestBuilder
-     */
+    /** @var RequestBuilder */
     private $requestBuilder;
 
-    /**
-     * @var ClientConfigurator
-     */
+    /** @var ClientConfigurator */
     private $clientConfigurator;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $clientId;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $clientSecret;
 
-    /**
-     * @var Authenticator
-     */
+    /** @var Authenticator */
     private $authenticator;
 
     /**
@@ -73,7 +56,7 @@ class SyliusClient
         $this->authenticator = new Authenticator($this->requestBuilder, $this->clientConfigurator->createConfiguredClient(), $clientId, $clientSecret);
     }
 
-    public static function create(string $endpoint, string $clientId, string $clientSecret): self
+    public static function create(string $endpoint, string $clientId = null, string $clientSecret = null): self
     {
         $clientConfigurator = new ClientConfigurator();
         $clientConfigurator->setEndpoint($endpoint);
