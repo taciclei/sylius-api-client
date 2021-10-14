@@ -7,7 +7,7 @@ declare(strict_types=1);
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace FAPI\Sylius\tests;
+namespace Tests;
 
 use FAPI\Sylius\Http\ClientConfigurator;
 use Http\Client\Common\Plugin\HeaderAppendPlugin;

@@ -2,12 +2,7 @@
 
 declare(strict_types=1);
 
-/*
- * This software may be modified and distributed under the terms
- * of the MIT license. See the LICENSE file for details.
- */
-
-namespace FAPI\Sylius\Api\Product;
+namespace FAPI\Sylius\V2\Api\Product;
 
 use FAPI\Sylius\Api\HttpApi;
 use FAPI\Sylius\Exception;

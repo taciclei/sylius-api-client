@@ -2,11 +2,6 @@
 
 declare(strict_types=1);
 
-/*
- * This software may be modified and distributed under the terms
- * of the MIT license. See the LICENSE file for details.
- */
-
 namespace FAPI\Sylius;
 
 use FAPI\Sylius\Http\AuthenticationPlugin;
@@ -14,30 +9,21 @@ use FAPI\Sylius\Http\Authenticator;
 use FAPI\Sylius\Http\ClientConfigurator;
 use FAPI\Sylius\Hydrator\Hydrator;
 use FAPI\Sylius\Hydrator\ModelHydrator;
+use FAPI\Sylius\V2\Api\ProductApi;
+use FAPI\Sylius\V2\Api\TaxonApi;
 use Http\Client\HttpClient;
 
-class SyliusClient
+class SyliusClientV2
 {
-    /** @var HttpClient */
-    private $httpClient;
+    private HttpClient $httpClient;
 
-    /** @var Hydrator */
-    private $hydrator;
+    private Hydrator $hydrator;
 
-    /** @var RequestBuilder */
-    private $requestBuilder;
+    private RequestBuilder $requestBuilder;
 
-    /** @var ClientConfigurator */
-    private $clientConfigurator;
+    private ClientConfigurator $clientConfigurator;
 
-    /** @var string|null */
-    private $clientId;
-
-    /** @var string|null */
-    private $clientSecret;
-
-    /** @var Authenticator */
-    private $authenticator;
+    private Authenticator $authenticator;
 
     /**
      * The constructor accepts already configured HTTP clients.
@@ -45,41 +31,32 @@ class SyliusClient
      */
     public function __construct(
         ClientConfigurator $clientConfigurator,
-        string $clientId,
-        string $clientSecret,
         Hydrator $hydrator = null,
         RequestBuilder $requestBuilder = null
     ) {
         $this->clientConfigurator = $clientConfigurator;
         $this->hydrator = $hydrator ?: new ModelHydrator();
         $this->requestBuilder = $requestBuilder ?: new RequestBuilder();
-        $this->authenticator = new Authenticator($this->requestBuilder, $this->clientConfigurator->createConfiguredClient(), $clientId, $clientSecret);
+        $this->authenticator = new Authenticator($this->requestBuilder, $this->clientConfigurator->createConfiguredClient());
     }
 
-    public static function create(string $endpoint, string $clientId = null, string $clientSecret = null): self
+    public static function create(string $endpoint): self
     {
         $clientConfigurator = new ClientConfigurator();
         $clientConfigurator->setEndpoint($endpoint);
 
-        return new self($clientConfigurator, $clientId, $clientSecret);
+        return new self($clientConfigurator);
     }
 
     /**
      * Autnenticate a user with the API. This will return an access token.
      * Warning, this will remove the current access token.
      */
-    public function createNewAccessToken(string $username, string $password): ?string
+    public function createNewAccessToken(string $username, string $password, $access = 'shop'): ?string
     {
         $this->clientConfigurator->removePlugin(AuthenticationPlugin::class);
 
-        return $this->authenticator->createAccessToken($username, $password);
-    }
-
-    public function createNewAccessTokenShopV2(string $username, string $password): ?string
-    {
-        $this->clientConfigurator->removePlugin(AuthenticationPlugin::class);
-
-        return $this->authenticator->createAccessTokenShopV2($username, $password);
+        return $this->authenticator->createAccessToken($username, $password, $access);
     }
 
     /**
@@ -121,14 +98,14 @@ class SyliusClient
         return new Api\Cart($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
-    public function product(): Api\Product
+    public function product(): ProductApi
     {
-        return new Api\Product($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+        return new ProductApi($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
-    public function taxon(): Api\Product\Taxon
+    public function taxon(): TaxonApi
     {
-        return new Api\Product\Taxon($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+        return new TaxonApi($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
     public function checkout(): Api\Checkout

@@ -7,7 +7,7 @@ declare(strict_types=1);
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace FAPI\Sylius\Api;
+namespace FAPI\Sylius\V2\Api;
 
 use FAPI\Sylius\Exception\Domain as DomainExceptions;
 use FAPI\Sylius\Exception\DomainException;

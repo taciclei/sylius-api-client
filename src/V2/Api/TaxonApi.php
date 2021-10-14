@@ -2,53 +2,43 @@
 
 declare(strict_types=1);
 
-/*
- * This software may be modified and distributed under the terms
- * of the MIT license. See the LICENSE file for details.
- */
-
-namespace FAPI\Sylius\Api\Product;
+namespace FAPI\Sylius\V2\Api;
 
 use FAPI\Sylius\Api\HttpApi;
 use FAPI\Sylius\Exception;
-use FAPI\Sylius\Model\Product\Taxon as Model;
-use FAPI\Sylius\Model\Product\TaxonCollection as ModelCollection;
+use FAPI\Sylius\V2\Model\TaxonModel;
+use FAPI\Sylius\v2\Model\TaxonModelCollection;
 use Psr\Http\Message\ResponseInterface;
 
-final class Taxon extends HttpApi
+final class TaxonApi extends HttpApi
 {
     /**
-     * {@link https://docs.sylius.com/en/1.4/api/taxons.html#collection-of-taxons}.
+     * {@link https://docs.sylius.com/en/1.9/api/admin_api/taxons.html}.
      *
-     * @throws Exception\DomainException
+     * @param string $access
      *
-     * @return ResponseInterface|ModelCollection
+     * @return ResponseInterface
      */
-    public function getAll(array $params = [])
+    public function getAll(array $params = [], $access = 'shop')
     {
-        $response = $this->httpGet('/api/v1/taxons/', $params);
+        $path = sprintf('/api/v2/%s/taxons', $access);
+        $response = $this->httpGet($path, $params);
+
         if (!$this->hydrator) {
             return $response;
         }
 
-        // Use any valid status code here
-        if (200 !== $response->getStatusCode()) {
-            $this->handleErrors($response);
-        }
-
-        return $this->hydrator->hydrate($response, ModelCollection::class);
+        return $this->hydrator->hydrate($response, TaxonModelCollection::class);
     }
 
     /**
-     * {@link https://docs.sylius.com/en/1.4/api/taxons.html#getting-a-single-taxon}.
+     * @return ResponseInterface
      *
-     * @throws Exception
-     *
-     * @return Model|ResponseInterface
+     * @throws Exception\DomainException
      */
     public function get(string $code)
     {
-        $response = $this->httpGet(\sprintf('/api/v1/taxons/%s', $code));
+        $response = $this->httpGet(\sprintf('/api/v2/taxons/%s', $code));
         if (!$this->hydrator) {
             return $response;
         }
@@ -58,15 +48,13 @@ final class Taxon extends HttpApi
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, Model::class);
+        return $this->hydrator->hydrate($response, TaxonModel::class);
     }
 
     /**
-     * {@link https://docs.sylius.com/en/1.4/api/taxons.html#creating-a-taxon}.
+     * @return ResponseInterface
      *
-     * @throws Exception
-     *
-     * @return Model|ResponseInterface
+     * @throws Exception\DomainException
      */
     public function create(string $code, array $params = [])
     {
@@ -81,7 +69,7 @@ final class Taxon extends HttpApi
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, Model::class);
+        return $this->hydrator->hydrate($response, TaxonModel::class);
     }
 
     /**
@@ -108,11 +96,9 @@ final class Taxon extends HttpApi
     }
 
     /**
-     * {@link https://docs.sylius.com/en/1.4/api/taxons.html#deleting-a-taxon}.
-     *
-     * @throws Exception
-     *
      * @return ResponseInterface|void
+     *
+     * @throws Exception\DomainException
      */
     public function delete(string $code)
     {

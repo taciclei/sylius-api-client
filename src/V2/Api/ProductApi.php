@@ -2,21 +2,15 @@
 
 declare(strict_types=1);
 
-/*
- * This software may be modified and distributed under the terms
- * of the MIT license. See the LICENSE file for details.
- */
+namespace FAPI\Sylius\V2\Api;
 
-namespace FAPI\Sylius\Api;
-
+use FAPI\Sylius\Api\HttpApi;
 use FAPI\Sylius\Api\Product\Variant;
 use FAPI\Sylius\Exception;
-use FAPI\Sylius\Model\Product\Product as Model;
-use FAPI\Sylius\Model\Product\ProductCollection;
-use FAPI\Sylius\Model\V2\Product\ProductCollectionV2;
+use FAPI\Sylius\V2\Model\Product\ProductModelCollection;
 use Psr\Http\Message\ResponseInterface;
 
-final class Product extends HttpApi
+final class ProductApi extends HttpApi
 {
     public function variant(): Variant
     {
@@ -24,13 +18,13 @@ final class Product extends HttpApi
     }
 
     /**
-     * @throws Exception
-     *
      * @return Model|ResponseInterface
+     *
+     * @throws Exception
      */
     public function get(string $productCode)
     {
-        $response = $this->httpGet('/api/v1/products/' . $productCode);
+        $response = $this->httpGet('/api/v2/products/' . $productCode);
         if (!$this->hydrator) {
             return $response;
         }
@@ -46,9 +40,9 @@ final class Product extends HttpApi
     /**
      * {@link https://docs.sylius.com/en/1.3/api/products.html#creating-a-product}.
      *
-     * @throws Exception
-     *
      * @return Model|ResponseInterface
+     *
+     * @throws Exception
      */
     public function create(string $productCode, array $params = [])
     {
@@ -71,9 +65,9 @@ final class Product extends HttpApi
      *
      * {@link https://docs.sylius.com/en/1.3/api/products.html#id14}
      *
-     * @throws Exception
-     *
      * @return ResponseInterface|void
+     *
+     * @throws Exception
      */
     public function update(string $productCode, array $params = [])
     {
@@ -88,27 +82,19 @@ final class Product extends HttpApi
         }
     }
 
-    /**
-     * @throws Exception\DomainException
-     *
-     * @return ProductCollection|ResponseInterface
-     */
-    public function getAll(array $params = [], $version = 'v1')
+    public function getAll(array $params = [], $access = 'shop')
     {
-        $path = '/api/v2/shop/products';
-        $class = ProductCollectionV2::class;
-
+        $path = sprintf('/api/v2/%s/products', $access);
         $response = $this->httpGet($path, $params);
 
         if (!$this->hydrator) {
             return $response;
         }
 
-        // Use any valid status code here
         if (200 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, $class);
+        return $this->hydrator->hydrate($response, ProductModelCollection::class);
     }
 }
