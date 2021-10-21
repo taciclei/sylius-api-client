@@ -22,6 +22,8 @@ final class Authenticator
 
     private string $accessMode = 'shop';
 
+    private ?string $customer;
+
     public function __construct(RequestBuilder $requestBuilder, HttpClient $httpClient, string $clientId = null, string $clientSecret = null)
     {
         $this->requestBuilder = $requestBuilder;
@@ -45,9 +47,10 @@ final class Authenticator
         if (200 !== $response->getStatusCode()) {
             return null;
         }
+        $data = json_decode($response->getBody()->__toString(), true);
 
-        $this->accessToken = json_decode($response->getBody()->__toString(), true)['token'];
-
+        $this->accessToken = $data['token'];
+        $this->customer = $data['customer'];
         return $this->accessToken;
     }
 
@@ -59,5 +62,13 @@ final class Authenticator
     public function getAccessMode(): ?string
     {
         return $this->accessMode;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCustomer(): ?string
+    {
+        return $this->customer;
     }
 }

@@ -13,6 +13,7 @@ use VCR\VCR;
 abstract class AbstractTest extends TestCase
 {
     private $clientShop;
+
     private $clientAdmin;
 
     public function setUp(): void
@@ -24,21 +25,16 @@ abstract class AbstractTest extends TestCase
         //$this->clientAdmin->createClientWithCredentials('shop@example.com', 'sylius', SyliusClientAbstract::ACCESS_ADMIN);
     }
 
-    public static function magnetoSerge() {
+    public static function magnetoSerge()
+    {
         VCR::configure()->setMode('new_episodes');
     }
 
-    /**
-     * @return SyliusClientShop
-     */
     public function getClientShop(): SyliusClientShop
     {
         return $this->clientShop;
     }
 
-    /**
-     * @return SyliusClientAdmin
-     */
     public function getClientAdmin(): SyliusClientAdmin
     {
         return $this->clientAdmin;

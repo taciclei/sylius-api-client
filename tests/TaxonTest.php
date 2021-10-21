@@ -26,7 +26,7 @@ class TaxonTest extends AbstractTest
 
         $client = $this->getClientShop();
         $tShirts = $client->taxon()->get('t_shirts');
-        static::assertEquals(2, count($tShirts->getChildren()));
+        static::assertCount(2, $tShirts->getChildren());
         static::assertCount(8, $tShirts->getTranslations());
         $fr = $tShirts->getBylocal('fr_FR');
         static::assertCount(6, $fr);

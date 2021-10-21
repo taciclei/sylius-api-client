@@ -9,10 +9,12 @@ use FAPI\Sylius\Model\CreatableFromArray;
 final class TaxonModel implements CreatableFromArray
 {
     private int $id;
+
     private string $code;
 
     /** @var string[][] */
     private array $translations;
+
     private array $children;
 
     private function __construct(int $id, string $code, array $translations, array $children)
@@ -22,7 +24,6 @@ final class TaxonModel implements CreatableFromArray
         $this->translations = $translations;
         $this->children = $children;
     }
-
 
     public static function createFromArray(array $data): self
     {
@@ -46,7 +47,7 @@ final class TaxonModel implements CreatableFromArray
             $children = $data['children'];
         }
 
-        return new self($id, $code, $translations,$children);
+        return new self($id, $code, $translations, $children);
     }
 
     public function getId(): int
@@ -67,9 +68,6 @@ final class TaxonModel implements CreatableFromArray
         return $this->translations;
     }
 
-    /**
-     * @return array
-     */
     public function getChildren(): array
     {
         return $this->children;

@@ -36,7 +36,7 @@ final class TaxonApi extends HttpApi
      */
     public function get(string $code, $access = 'shop'): TaxonModel
     {
-        $response = $this->httpGet(\sprintf('api/v2/%s/taxons/%s', $access,$code));
+        $response = $this->httpGet(\sprintf('api/v2/%s/taxons/%s', $access, $code));
         if (!$this->hydrator) {
             return $response;
         }

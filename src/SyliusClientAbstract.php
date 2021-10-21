@@ -9,12 +9,16 @@ use FAPI\Sylius\Http\Authenticator;
 use FAPI\Sylius\Http\ClientConfigurator;
 use FAPI\Sylius\Hydrator\Hydrator;
 use FAPI\Sylius\Hydrator\ModelHydrator;
+use FAPI\Sylius\V2\Api\Customer;
 use Http\Client\HttpClient;
 
 abstract class SyliusClientAbstract
 {
     public const ACCESS_SHOP = 'shop';
+
     public const ACCESS_ADMIN = 'admin';
+
+    public const API_ACCESS = self::ACCESS_SHOP;
 
     private HttpClient $httpClient;
 
@@ -25,7 +29,11 @@ abstract class SyliusClientAbstract
     private ClientConfigurator $clientConfigurator;
 
     private Authenticator $authenticator;
-    private ?string $tokenApi=null;
+
+    private ?string $tokenApi = null;
+
+    public ?Customer $customer = null;
+
     /**
      * The constructor accepts already configured HTTP clients.
      * Use the configure method to pass a configuration to the Client and create an HTTP Client.
@@ -45,11 +53,12 @@ abstract class SyliusClientAbstract
      * Autnenticate a user with the API. This will return an access token.
      * Warning, this will remove the current access token.
      */
-    public function createNewAccessToken(string $username, string $password, $access = self::ACCESS_SHOP): ?string
+    public function createNewAccessToken(string $username, string $password): ?string
     {
         $this->clientConfigurator->removePlugin(AuthenticationPlugin::class);
-
-        return $this->authenticator->createAccessToken($username, $password, $access);
+        $response = $this->authenticator->createAccessToken($username, $password, self::API_ACCESS);
+        $customerIri = $this->getAuthenticator()->getCustomer();
+        return $response;
     }
 
     /**
@@ -78,7 +87,9 @@ abstract class SyliusClientAbstract
 
     public function getByIri($iri, string $class)
     {
-        return $this->getHttpClient()->sendRequest('GET', $iri);
+        $response = $this->getHttpClient()->sendRequest();
+
+        return $this->hydrator->hydrate($response, $class);
     }
 
     /**
@@ -89,29 +100,21 @@ abstract class SyliusClientAbstract
         return $this->hydrator;
     }
 
-    /**
-     * @return RequestBuilder
-     */
     public function getRequestBuilder(): RequestBuilder
     {
         return $this->requestBuilder;
     }
 
-    /**
-     * @return ClientConfigurator
-     */
     public function getClientConfigurator(): ClientConfigurator
     {
         return $this->clientConfigurator;
     }
 
-    /**
-     * @return Authenticator
-     */
     public function getAuthenticator(): Authenticator
     {
         return $this->authenticator;
     }
+
     public function getHttpClient(): HttpClient
     {
         return $this->getClientConfigurator()->createConfiguredClient();
@@ -134,25 +137,19 @@ abstract class SyliusClientAbstract
         if ($this->getTokenApi()) {
             return $this->getTokenApi();
         }
+
         return $this->createNewAccessToken($username, $password, $access);
     }
 
-    /**
-     * @return string|null
-     */
     public function getTokenApi(): ?string
     {
         return $this->tokenApi;
     }
 
-    /**
-     * @param string|null $tokenApi
-     * @return SyliusClientAbstract
-     */
-    public function setTokenApi(?string $tokenApi): SyliusClientAbstract
+    public function setTokenApi(?string $tokenApi): self
     {
         $this->tokenApi = $tokenApi;
+
         return $this;
     }
-
 }

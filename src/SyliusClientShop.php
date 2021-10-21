@@ -10,6 +10,7 @@ use FAPI\Sylius\V2\Api\TaxonApi;
 
 class SyliusClientShop extends SyliusClientAbstract
 {
+    public const API_ACCESS = SyliusClientAbstract::ACCESS_SHOP;
 
     public static function create(string $endpoint): self
     {
@@ -18,7 +19,6 @@ class SyliusClientShop extends SyliusClientAbstract
 
         return new self($clientConfigurator);
     }
-
 
     public function customer(): Api\Customer
     {
@@ -34,5 +34,4 @@ class SyliusClientShop extends SyliusClientAbstract
     {
         return new TaxonApi($this->getHttpClient(), $this->getHydrator(), $this->getRequestBuilder());
     }
-
 }

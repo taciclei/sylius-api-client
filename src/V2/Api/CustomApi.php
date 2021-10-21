@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace FAPI\Sylius\V2\Api;
 
-final class Custom extends HttpApi
+final class CustomApi extends HttpApi
 {
     public function get(string $path, array $params = [], array $requestHeaders = [], string $class = '')
     {
