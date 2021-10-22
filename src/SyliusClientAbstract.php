@@ -9,7 +9,7 @@ use FAPI\Sylius\Http\Authenticator;
 use FAPI\Sylius\Http\ClientConfigurator;
 use FAPI\Sylius\Hydrator\Hydrator;
 use FAPI\Sylius\Hydrator\ModelHydrator;
-use FAPI\Sylius\V2\Api\Customer;
+use FAPI\Sylius\V2\Api\CustomerApi;
 use Http\Client\HttpClient;
 
 abstract class SyliusClientAbstract
@@ -32,7 +32,7 @@ abstract class SyliusClientAbstract
 
     private ?string $tokenApi = null;
 
-    public ?Customer $customer = null;
+    public ?CustomerApi $customer = null;
 
     /**
      * The constructor accepts already configured HTTP clients.

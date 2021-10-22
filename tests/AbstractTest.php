@@ -15,10 +15,12 @@ abstract class AbstractTest extends TestCase
     private $clientShop;
 
     private $clientAdmin;
+    private $clientShopNoConnected;
 
     public function setUp(): void
     {
-        $endpoint = 'https://master.demo.sylius.com/';
+        $endpoint = 'https://api-club-local.leoo-factory.io/';
+        $this->clientShopNoConnected = SyliusClientShop::create($endpoint);
         $this->clientShop = SyliusClientShop::create($endpoint);
         $this->clientShop->createClientWithCredentials('shop@example.com', 'sylius', SyliusClientAbstract::ACCESS_SHOP);
         $this->clientAdmin = SyliusClientAdmin::create($endpoint);
@@ -39,4 +41,14 @@ abstract class AbstractTest extends TestCase
     {
         return $this->clientAdmin;
     }
+
+    /**
+     * @return SyliusClientShop
+     */
+    public function getClientShopNoConnected(): SyliusClientShop
+    {
+        return $this->clientShopNoConnected;
+    }
+
+
 }

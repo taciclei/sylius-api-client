@@ -22,7 +22,7 @@ class TaxonTest extends AbstractTest
      */
     public function testGet()
     {
-        static::magnetoSerge();
+        //static::magnetoSerge();
 
         $client = $this->getClientShop();
         $tShirts = $client->taxon()->get('t_shirts');

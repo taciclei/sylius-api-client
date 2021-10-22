@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FAPI\Sylius;
 
 use FAPI\Sylius\Http\ClientConfigurator;
+use FAPI\Sylius\V2\Api\CustomerApi;
 use FAPI\Sylius\V2\Api\ProductApi;
 use FAPI\Sylius\V2\Api\TaxonApi;
 
@@ -20,9 +21,9 @@ class SyliusClientShop extends SyliusClientAbstract
         return new self($clientConfigurator);
     }
 
-    public function customer(): Api\Customer
+    public function customer(): CustomerApi
     {
-        return new Api\Customer($this->getHttpClient(), $this->getHydrator(), $this->getRequestBuilder());
+        return new CustomerApi($this->getHttpClient(), $this->getHydrator(), $this->getRequestBuilder());
     }
 
     public function product(): ProductApi

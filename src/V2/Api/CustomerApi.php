@@ -9,28 +9,29 @@ use FAPI\Sylius\Exception\InvalidArgumentException;
 use FAPI\Sylius\Model\Customer\Customer as Model;
 use Psr\Http\Message\ResponseInterface;
 
-final class Customer extends HttpApi
+final class CustomerApi extends HttpApi
 {
     /**
      * @throws Exception
      *
      * @return Model|ResponseInterface
      */
-    public function create(string $email, string $firstName, string $lastName, string $gender, array $optionalParams = [])
+    public function create(string $email, string $firstName, string $lastName, string $gender, $password, bool $subscribedToNewsletter= false, array $optionalParams = [])
     {
-        $params = $this->validateAndGetParams($email, $firstName, $lastName, $gender, $optionalParams);
+        $params = $this->validateAndGetParams($email, $firstName, $lastName, $gender, $password, $subscribedToNewsletter, $optionalParams);
 
-        $response = $this->httpPost('/api/v1/customers/', $params);
+        $response = $this->httpPost('/api/v2/shop/customers', $params);
+
         if (!$this->hydrator) {
             return $response;
         }
 
         // Use any valid status code here
-        if (201 !== $response->getStatusCode()) {
+        if (204 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, Model::class);
+        return $response;
     }
 
     /**
@@ -52,8 +53,9 @@ final class Customer extends HttpApi
         return $response;
     }
 
-    private function validateAndGetParams(string $email, string $firstName, string $lastName, string $gender, array $optionalParams): array
+    private function validateAndGetParams(string $email, string $firstName, string $lastName, string $gender, string $password, bool $subscribedToNewsletter, array $optionalParams): array
     {
+
         if (empty($email)) {
             throw new InvalidArgumentException('Email cannot be empty');
         }
@@ -70,11 +72,18 @@ final class Customer extends HttpApi
             throw new InvalidArgumentException('Gender cannot be empty');
         }
 
+        if (empty($password)) {
+            throw new InvalidArgumentException('password cannot be empty');
+        }
+
+
         $params = \array_merge([
             'firstName' => $firstName,
             'lastName' => $lastName,
             'email' => $email,
-            'gender' => $gender,
+
+            'password' => $password,
+            'subscribedToNewsletter' => $subscribedToNewsletter
         ], $optionalParams);
 
         return $params;

@@ -10,5 +10,3 @@ require_once __DIR__ . '/../vendor/autoload.php';
     //->setMode('new_episodes');
     ->setMode('none');
 
-\VCR\VCR::turnOn();
-\VCR\VCR::turnOff();
